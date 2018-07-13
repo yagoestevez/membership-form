@@ -1,5 +1,12 @@
+/*
+ *  Brought to you by Yago Estévez. https://twitter.com/yagoestevez
+ */
+
 @import './mixins';
 
+//
+//  MEDIA QUERIES.
+//
 @media only screen and ( max-width: 450px ) {
   #launcher, #launcher .main p,
   #main #pretitle, #main #description {
