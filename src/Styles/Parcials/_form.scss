@@ -1,0 +1,180 @@
+/*
+ *  Brought to you by Yago Estévez. https://twitter.com/yagoestevez
+ */
+
+@import './variables';
+@import './mixins';
+
+//
+//  FORM.
+//
+#form-indicators {
+  padding               : 10px 0;
+
+  #label {
+    flex                : 1;
+    justify-self        : center;
+  }
+
+  #breadcrumbs-svg {
+    @include            widthHeight( 110,30 );
+
+    margin              : 0;
+
+    #breadcrumb-mark {
+      fill              : lighten( $key-color, 10% );
+      transition        : transform 300ms;
+    }
+    
+    #breadcrumb-bg {
+      fill              :  rgba( $light-color, .8 );
+    }
+  }
+  
+}
+
+#container {
+  @include              widthHeight( 500,70 );
+
+  position              : relative;
+  overflow              : hidden;
+
+  #form {
+    @include            widthHeight( 500,70 );
+
+    position            : absolute;
+    top                 : 0;
+    left                : 0;
+    transition          : opacity 300ms;
+    font-size           : 1.5rem;
+
+    input[type="text"], input[type="email"],
+    input[type="number"], select, textarea {
+      @include          widthHeight( 500,70 );
+
+      color             : $bg-color;
+      border            : none;
+      text-align        : center;
+      text-align-last   : center;
+      background        : transparent;
+      padding           : 1rem;
+      z-index           : 1;
+      transition        : 300ms;
+    }
+
+    button[type="submit"] {
+      position          : absolute;
+      left              : -9000px;
+      top               : 0px;
+    }
+
+    #TOS, #fav {
+      color             : $bg-color;
+      border            : none;
+      height            : 70px;
+      padding           : 0;
+
+      label {
+        @include        widthHeight( 150,50 );
+
+        border-bottom   : 2px solid $bg-color;
+        text-align      : center;
+        padding         : 5px;
+        transition      : 200ms;
+      }
+
+      li {
+        display         : inline-block;
+        list-style      : none;
+        list-style-type : none;
+        padding         : 10px;
+      }
+
+      input[type="radio"], input[type="checkbox"] {
+        display         : none;
+      }
+
+      input[type="radio"]:hover ~ label,
+      input[type="radio"]:checked ~ label,
+      input[type="checkbox"]:hover ~ label,
+      input[type="checkbox"]:checked ~ label {
+        @include        keyBg( );
+      }
+    }
+
+    #TOS {
+      color             : $bg-color;
+      transition        : 300ms;
+
+      label {
+        border-bottom   : 2px solid $bg-color;
+        background      : $light-color;
+        padding         : 10px 20px;
+      }
+    }
+    
+    label.hidden {
+      position          : absolute;
+      left              : -9000px;
+      opacity           : 0;
+      font-size         : .1px;
+    }
+  
+    ::placeholder {
+      color             : rgba( $bg-color, .4 );
+      font-weight       : 100;
+      text-align        : center;
+      opacity           : 1;
+    }
+  }
+  
+  #input-bg {
+    @include            widthHeight( 500,70 );
+
+    #input-shape {
+      fill              : $light-color;
+      transition        : 400ms;
+    }
+  }
+
+}
+
+#next-btn {
+  @include              clip-path( poly );
+  @include              widthHeight( 500,70 );
+
+  margin                : 2px 0 20px 0;
+  padding               : 0 0 10px 0;
+  background            : transparent;
+  color                 : $key-color;
+  border                : none;
+  font-size             : 1.5rem;
+  overflow              : hidden;
+  transition            : 300ms;
+
+  &:hover, &:active {
+    @include            keyBg( );
+    @include            clip-path( poly,arrow );
+  }
+
+  &:hover:disabled, &active:disabled {
+    background          : none;
+  }
+
+  &[disabled], &:disabled {
+    color               : rgba( $light-color, .5 );
+  }
+
+  &.submit {
+    clip-path           : none;
+    &:hover, &:active {
+      clip-path         : none;
+    }
+  }
+
+}
+
+button, label {
+  cursor                : pointer;
+}
+

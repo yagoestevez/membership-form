@@ -18,10 +18,12 @@
       <h2>Welcome.</h2>
       <h3>It's good to have you here.</h3>
       <hr class="w-100" />
-      <p>So you decided to join us and many other members of our awesome community after all, right?</p>
-      <p>We're so glad you did! <span class="em">Let's do it!</span></p>
+      <p>So you decided to join our team and many other members of our awesome community, right?</p>
+      <p>We're so glad you did! Now, you should start the sign up process.</p>
     </section>
-    <button type="button"><span class="flex-center">sign up &nbsp; <i class="fas fa-sign-in-alt"></i></span></button>
+    <button id="launcherBtn" type="button" class="w-100">
+      <span class="flex-center">sign up &nbsp; <i class="fas fa-sign-in-alt"></i></span>
+    </button>
   </section>
 
   <main id="main" class="flex-col-center hidden">
@@ -75,30 +77,34 @@
             <option value="hobbyist">Hobbyist</option>
             <option value="other">Other</option>
           </select>
-          <fieldset id="fav" class="flex-space-evenly">
-            <div class="inputGroup">
-              <input id="fav1" class="fav" name="interests" value="1" type="checkbox">
-              <label for="fav1" class="flex-center">Front-End</label>
-            </div>
-            <div class="inputGroup">
-              <input id="fav2" class="fav" name="interests" value="2" type="checkbox">
-              <label for="fav2" class="flex-center">Back-End</label>
-            </div>
-            <div class="inputGroup">
-              <input id="fav3" class="fav" name="interests" value="3" type="checkbox">
-              <label for="fav3" class="flex-center">Design</label>
-            </div>
+          <fieldset id="fav">
+            <ul class="flex-space-evenly h-100">
+              <li>
+                <input id="fav1" class="fav" name="interests" value="1" type="checkbox">
+                <label for="fav1">Front-End</label>
+              </li>
+              <li>
+                <input id="fav2" class="fav" name="interests" value="2" type="checkbox">
+                <label for="fav2">Back-End</label>
+              </li>
+              <li>
+                <input id="fav3" class="fav" name="interests" value="3" type="checkbox">
+                <label for="fav3">Design</label>
+              </li>
+            </ul>
           </fieldset>
           <textarea id="comments" name="comment" placeholder="Your comments here."></textarea>
-          <fieldset id="TOS" class="flex-space-evenly">
-            <div class="inputGroup">
-              <input id="tos-accept" value="accept" name="tos" type="radio" checked/>
-              <label for="tos-accept" class="flex-center">Yes</label>
-            </div>
-            <div class="inputGroup">
-              <input id="tos-reject" value="reject" name="tos" type="radio"/>
-              <label for="tos-reject" class="flex-center">No</label>
-            </div>
+          <fieldset id="TOS" class="flex-center">
+            <ul class="flex-space-evenly">
+              <li>
+                <input id="tos-accept" value="accept" name="tos" type="radio" checked/>
+                <label for="tos-accept" class="flex-center">Yes</label>
+              </li>
+              <li>
+                <input id="tos-reject" value="reject" name="tos" type="radio"/>
+                <label for="tos-reject" class="flex-center">No</label>
+              </li>
+            </ul>
           </fieldset>
           <button id="submit" type="submit">Submit</button>
         </form>
@@ -115,8 +121,8 @@
     <span>made by <a href="https://twitter.com/yagoestevez" target="_blank">Yago Estévez</a></span>
   </section>
 
-  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
   <script src="bundle.js"></script>
+
 </body>
 
 </html>

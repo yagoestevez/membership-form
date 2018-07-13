@@ -1,12 +1,17 @@
 /**
  * Brought to you by Yago Estévez. https://twitter.com/yagoestevez
  */
+
 require( "babel-runtime/regenerator" );
 require( './index.html'              );
-require( './main.scss'               );
+require( './Styles/main.scss'        );
 require( 'normalize.css'             );
 
+//
+//  Selecting HTML elements.
+//
 const launcher        = document.querySelector( '#launcher'        );
+const launcherBtn     = document.querySelector( '#launcherBtn'     );
 const main            = document.querySelector( '#main'            );
 const form            = document.querySelector( 'form'             );
 const nextBtn         = document.querySelector( '#next-btn'        );
@@ -54,7 +59,8 @@ const typeWriter = ( message, label, ms = 10 ) => {
 //
 const showError = ( msg, field ) => {
   typeWriter( msg, displayLabel );
-  field.classList.add( 'warning-bg' );
+  if ( field === tosGroup ) field.classList.add( 'warning-bg-TOS' );
+  else                      field.classList.add( 'warning-bg' );
   currentStep--;
   return false;
 }
@@ -80,10 +86,10 @@ const isValidEmail = ( ) => {
 }
 
 const isValidAge = ( ) => {
-  return ageField.value > 122 || ageField.value < 1
-    ? showError( `Are you sure you're ${ageField.value}...?`, ageField )
-    : !ageField.value
-      ? showError( 'Oops! Wrong email address.', ageField )
+  return ageField.value === ''
+    ? showError( 'You don\'t age? :D Please...', ageField ) 
+    : ageField.value > 122 || ageField.value < 1
+      ? showError( `Are you sure you're ${ageField.value}...?`, ageField )
       : hideError( ageField )
 }
 
@@ -104,8 +110,8 @@ const isValidTOS = ( ) => {
 
 const finalStep = ( ) => {
   nextBtn.classList.add( 'submit' );
-  nextBtn.textContent = '» submit »'
-  inputShape.style.visibility = 'hidden'; ////////////////////////////////////////// CHECK
+  nextBtn.textContent         = '» submit »'
+  inputShape.style.visibility = 'hidden';
   return true;
 }
 
@@ -190,7 +196,7 @@ const handleEnterPress = event => {
   }
 }
 
-launcher.addEventListener(        'click', ( ) => launchForm( )                   );
+launcherBtn.addEventListener(     'click', ( ) => launchForm( )                   );
 nextBtn.addEventListener(         'click', ( ) => nextStep( )                     );
 
 nextBtn.addEventListener(         'keypress', event => handleEnterPress( event )  );

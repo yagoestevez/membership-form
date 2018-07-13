@@ -1,0 +1,177 @@
+/*
+ *  Brought to you by Yago Estévez. https://twitter.com/yagoestevez
+ */
+
+//
+//  DEPENDENCIES.
+//
+@import url( 'https://fonts.googleapis.com/css?family=Amaranth' );
+@import url( 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
+@import './Parcials/variables';
+@import './Parcials/mediaqueries';
+@import './Parcials/helpers';
+@import './Parcials/form';
+
+//
+//  RESETTING DOCUMENT.
+//
+*,
+*::before,
+*::after,
+:root {
+  box-sizing        : border-box;
+  padding           : 0;
+  margin            : 0;
+  appearance        : none;
+  outline           : none;
+}
+
+html, body {
+  width             : 100%;
+  height            : 100%;
+}
+
+//
+//  INITIAL SET UP.
+//
+body {
+  background        : $bg-color;
+  color             : $light-color;
+  background        : url(../Image/headerBg.jpg) center;
+  background-size   : cover;
+  font-family       : 'Amaranth', sans-serif;
+}
+
+
+#main {
+  @include          clip-path( circle,100% );
+
+  background        : rgba( $bg-color, .9 );
+  padding           : 0 20px;
+  transition        : clip-path 500ms ease 500ms,
+                      opacity 500ms ease,
+                      visibility 500ms ease 500ms;
+
+  &.shown {
+    @include        clip-path( circle,100% );
+  }
+
+  &.hidden {
+    @include        clip-path( circle,0% );
+  }
+
+  #header {
+    padding         : 50px 0 15px 0;
+
+    #title, #description {
+      align-self    : center;
+      margin        : 0;
+    }
+
+    #pretitle {
+      line-height   : 10px;
+    }
+
+    #title {
+      font-size     : 2rem;
+      color         : $key-color;
+    }
+
+    #description {
+      line-height   : 16px;
+      font-size     : 1.2rem;
+      text-align    : right;
+    }
+  }
+
+  hr {
+    border          : none;
+    border-bottom   : 1px solid rgba( $light-color, .5 );
+  }
+
+}
+
+#sent-display {
+  @include          absoluteCenter( 300,dark );
+
+  border-radius     : 50%;
+  transition        : clip-path 500ms ease 1000ms,
+                      opacity 500ms ease,
+                      visibility 500ms ease 1000ms;
+
+  &.hidden {
+    @include        clip-path( circle,0% );
+  }
+
+  &.shown {
+    @include        clip-path( circle,100% );
+  }
+
+  a, a:visited {
+    color           : $light-color;
+    text-decoration : none;
+    transition      : color 300ms;
+  }
+
+  a:hover, a:active {
+    color           : $key-color;
+  }
+}
+
+#launcher {
+  @include          absoluteCenter( 400 );
+  @include          clip-path( circle,100% );
+
+  text-align        : justify;
+  padding           : 40px;
+  transition        : clip-path 500ms ease,
+                      opacity 500ms ease,
+                      visibility 500ms ease 500ms;
+
+  &.hidden {
+    @include        clip-path( circle,0% );
+  }
+
+  &.shown {
+    @include        clip-path( circle,100% );
+  }
+
+  .main {
+    color           : $bg-color;
+
+    h2 {
+      background    : $key-color;
+      padding       : 5px;
+      margin-left   : -5px;
+      transform     : rotate(-2deg);
+    }
+
+    p {
+      font-size     : 1.1rem; 
+      padding       : 10px 0;
+    }
+
+    hr {
+      padding       : 10px 0;
+      border        : none;
+      border-bottom : 1px solid rgba( $bg-color, .6 );
+    }
+  }
+  button {
+    @include        keyBg( inverse );
+
+    font-size       : 1.4rem;
+    border          : none;
+    padding         : 10px 15px;
+    border-radius   : 5px;
+    transition      : 300ms;
+
+    span {
+      line-height: 1rem;
+    }
+
+    &:hover, &:active {
+      @include      keyBg( );
+    }
+  }
+}

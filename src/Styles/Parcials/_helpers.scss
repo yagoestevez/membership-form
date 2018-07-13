@@ -1,0 +1,46 @@
+//
+//  HELPER STYLES.
+//
+@import './Parcials/variables';
+@import './Parcials/mixins';
+
+.h-100 {
+  height          : 100%;
+}
+
+.w-100 {
+  width           : 100%;
+}
+
+em {
+  color           : $key-color;
+}
+
+.warning-bg, .warning-bg-TOS {
+  color           : $light-color !important;
+  background      : $warning-color !important;
+}
+
+.warning-bg-TOS {
+  color           : $bg-color !important;
+}
+
+.flex-col-center {
+  @include flex( column,center,center         );
+}
+
+.flex-col-left {
+  @include flex( column,flex-start,center     );
+}
+
+.flex-center {
+  @include flex( row,flex-start,center        );
+}
+
+.flex-space-evenly {
+  @include flex( row,center,space-evenly      );
+}
+
+.flex-col-space-between {
+  @include flex( column,center,space-between  );
+}

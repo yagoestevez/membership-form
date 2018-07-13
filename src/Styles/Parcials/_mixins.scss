@@ -1,0 +1,89 @@
+/*
+ *  Brought to you by Yago Estévez. https://twitter.com/yagoestevez
+ */
+
+//
+//  MIXINS,
+//
+@mixin widthHeight( $w, $h, $important: false ) {
+  @if $important == false {
+            width : #{$w}px;
+           height : #{$h}px;
+  } @else {
+            width : #{$w}px $important;
+           height : #{$h}px $important;
+  }
+}
+
+@mixin keyBg( $primary:standard ) {
+  @if $primary == standard {
+       background : $key-color;
+            color : $bg-color;
+  } @else {
+       background : $bg-color;
+            color : $key-color;
+  }
+}
+
+@mixin flex( $dir, $align, $just ) {
+          display : flex;
+   flex-direction : $dir;
+      align-items : $align;
+  justify-content : $just;
+}
+
+@mixin clip-path( $type, $shape: square ) {
+  @if $type == poly {
+    @if $shape == arrow {
+        clip-path : polygon(95% 0%, 100% 50%, 95% 100%, 0% 100%, 5% 50%, 0% 0%);
+    } @else {
+        clip-path : polygon(100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%, 0% 0%);
+    }
+  } @else {
+        clip-path : circle( $shape at 50% 50% );
+  }
+}
+
+@mixin media-query( $screen, $w, $pad: 0 ) {
+  
+  @media only screen and ( max-width: #{$screen}px ) {
+    #launcher {
+            width : #{$w}px !important;
+    }
+    #main {
+            width : #{$w}px;
+    }
+    #container {    
+            width : #{$w - $pad}px !important;
+      #form {
+            width : #{$w - $pad}px  !important;
+        input[type="text"], input[type="email"],
+        input[type="number"], select, textarea {
+            width : #{$w - $pad}px  !important;
+        }
+        li {
+          padding : 0 !important;
+        }
+      }
+    }
+    #next-btn {
+            width : #{$w - $pad}px !important;
+    }
+  }
+
+}
+
+@mixin absoluteCenter( $size,$color:light ) {
+  position          : absolute;
+  top               : 50%;
+  left              : 50%;
+  height            : #{$size}px;
+  width             : #{$size}px;
+  transform         : translate( -50%,-50% );
+  color             : $key-color;
+  @if $color == light {
+    background        : rgba( $light-color, .9 );
+  } @else {
+    background        : rgba( $bg-color, .9 );
+  }
+}

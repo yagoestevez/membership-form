@@ -1,0 +1,55 @@
+@import './mixins';
+
+@media only screen and ( max-width: 450px ) {
+  #launcher, #launcher .main p,
+  #main #pretitle, #main #description {
+    font-size     : 1rem !important;
+  }
+  #launcher {
+    width         : 390px !important;
+    padding       : 20px !important;
+  }
+  #main {
+    #title {
+      font-size   : 1.4rem !important;
+    }
+    #form-indicators {
+      height      : 50px;
+      #label {
+        font-size : .8rem;
+      }
+      #breadcrumbs-svg {
+        @include  widthHeight( 80,20,!important );
+        margin    : 0;
+      }
+    }
+    width         : 390px;
+  }
+  #container {
+    @include      widthHeight( 350,70,!important );
+
+    #form input[type="text"], #form input[type="email"],
+    #form input[type="number"], #form select, #form textarea,
+    #TOS, #fav {
+      font-size   : 1.2rem !important;
+    }
+    #form {
+      width       : 350px !important;
+
+      input[type="text"], input[type="email"],
+      input[type="number"], select, textarea {
+        @include  widthHeight( 350,70,!important );
+      }
+      #TOS label, #fav label {
+        @include  widthHeight( 80,50,!important );
+      }
+    }
+  }
+  #next-btn {
+    @include      widthHeight( 350,70,!important );
+  }
+}
+
+// Change only the width values, the only ones actually changing.
+@include media-query( 400,350,40 );
+@include media-query( 350,300,40 );

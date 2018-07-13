@@ -1,7 +1,7 @@
 {
-  "name": "survey-form",
-  "version": "0.1.0",
-  "description": "A beautiful survey",
+  "name": "membership-form",
+  "version": "1.0.0",
+  "description": "A beautiful animated membership form",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config=config/webpack.dev.js --open --host 0.0.0.0",
@@ -9,8 +9,11 @@
   },
   "author": "Yago Estévez",
   "keywords": [
+    "membership",
+    "form",
     "survey",
-    "css",
+    "animation",
+    "scss",
     "svg"
   ],
   "license": "MIT",
