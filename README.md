@@ -1,6 +1,6 @@
-# A beautiful survey form
+# A Membership form
 
-A project made for Codepen and FreeCodeCamp.
+A project made for a Codepen Challenge and FreeCodeCamp curriculum.
 
 ---
 
