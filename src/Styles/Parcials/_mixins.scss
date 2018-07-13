@@ -80,10 +80,11 @@
   height            : #{$size}px;
   width             : #{$size}px;
   transform         : translate( -50%,-50% );
-  color             : $key-color;
   @if $color == light {
     background        : rgba( $light-color, .9 );
+    color             : $key-color;
   } @else {
-    background        : rgba( $bg-color, .9 );
+    background        : rgba( $key-color, .9 );
+    color             : $bg-color;
   }
 }
